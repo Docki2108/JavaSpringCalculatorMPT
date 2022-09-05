@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+
+<form action="/abebe/addAbebe" method="post">
+    <p>Имя</p>
+    <input type="text" id="name" name="name" placeholder="Имя">
+    <br>
+    <p>Информация</p>
+    <textarea type="text" id="info" name="info" placeholder="Основной цвет"></textarea>
+    <br>
+    <p>Город</p>
+    <input type="text" id="city" name="city" placeholder="Пол">
+    <br>
+    <p>Атака</p>
+    <input type="number" id="attack" name="attack" placeholder="Рост">
+    <br>
+    <p>Броня</p>
+    <input type="number" id="armor" name="armor" placeholder="Год создания">
+    <br>
+    <input type="submit" value="Добавить Абебе" class="btn btn-success">
+</form>
+<a href="/abebe/" class="btn btn-primary">Назад</a>
+
+</body>
+</html>

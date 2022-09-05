@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="text/html" charset="UTF-8">
+  <title>News</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+
+<form action="/huggywuggy/addHuggy" method="post">
+  <p>Имя</p>
+  <input type="text" id="name" name="name" placeholder="Имя">
+  <br>
+  <p>Основной цвет</p>
+  <input type="text" id="primary_color" name="primary_color" placeholder="Основной цвет">
+  <br>
+  <p>Пол</p>
+  <input type="text" id="gender" name="gender" placeholder="Пол">
+  <br>
+  <p>Рост</p>
+  <input type="number" id="height" name="height" placeholder="Рост">
+  <br>
+  <p>Год создания</p>
+  <input type="number" id="creation_date" name="creation_date" placeholder="Год создания">
+  <br>
+  <input type="submit" value="Добавить Хагги Вагги" class="btn btn-success">
+</form>
+<a href="/news/" class="btn btn-primary">Назад</a>
+
+</body>
+</html>
