@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="text/html" charset="UTF-8">
+  <title>News</title>
+  <link rel="stylesheet" href="/style.css"></head>
+<body>
+
+<div th:each="el : ${news}">
+  <h2 th:text="${el.title}"></h2>
+  <h3 th:text="${el.author}"></h3>
+
+  <p th:text="${el.body_text}"></p>
+  <p th:text="${el.views}"></p>
+  <p th:text="${el.likes}"></p>
+  <a th:href="'/news/edit/'+${el.id}"  class="btn btn-primary">Изменить</a>
+  <a th:href="'/news/delete/'+${el.id}"  class="btn btn-primary">Удалить</a>
+</div>
+
+<a href="/news/" class="btn btn-primary">Назад</a>
+
+</body>
+</html>

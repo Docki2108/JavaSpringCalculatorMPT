@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta content="text/html" charset="UTF-8">
+    <title>News</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<form method="get" action="/news/search">
+    <input type="text" name="title" id="title">
+    <input type="submit" value="Найти">
+</form>
+
+<div th:each="el : ${news}">
+    <h2 th:text="${el.title}"></h2>
+    <h3 th:text="${el.author}"></h3>
+    <p th:text="${el.views}"></p>
+    <p th:text="${el.likes}"></p>
+    <a th:href="'/news/'+${el.id}">Прочитать статью</a>
+
+</div>
+
+<div class="container">
+    <a href="/news/add" class="btn">Добавить новость</a>
+</div>
+
+
+</body>
+</html>

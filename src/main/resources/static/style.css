@@ -1,0 +1,15 @@
+*{
+    text-align: center;
+    background-color: lavender;
+}
+
+
+
+/*.container {*/
+/*    margin-top: 15px;*/
+/*}*/
+
+.btn {
+   color: white;
+    border-radius: 10px;
+}

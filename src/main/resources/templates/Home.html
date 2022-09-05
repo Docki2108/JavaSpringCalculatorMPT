@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<p th:text="'Hello, ' + ${name} + '!'" />
+<br>
+<br>
+<a>post метод для тех кто стестняется</a>
+<div class="centerWrapper">
+<form method="post" action="/res">
+    <input id="variable1" name="variable1" type="text">
+    <input id="variable2" name="variable2" type="text">
+    <div class="action-wrapper">
+        <select id="3" name="operations">
+            <option value="+">Сложение</option>
+            <option value="-">Вычитание</option>
+            <option value="*">Умножение</option>
+            <option value="/">Деление</option>
+        </select>
+        <input type="submit" value="посчитать">
+    </div>
+    <input type="submit" value="другая кнопка посчитать">
+</form>
+</div>
+<br>
+<a>get метод для тех кто не стестняется</a>
+<form method="get" action="/res">
+    <input id="variable11" name="variable1" type="text">
+    <input id="variable22" name="variable2" type="text">
+    <div class="action-wrapper">
+        <select id="33" name="operations">
+            <option value="+">Сложение</option>
+            <option value="-">Вычитание</option>
+            <option value="*">Умножение</option>
+            <option value="/">Деление</option>
+        </select>
+        <input type="submit" value="посчитать">
+    </div>
+
+</form>
+<br>
+<a>для гигачадов открыта адресная строка</a>
+</body>
+</html>
