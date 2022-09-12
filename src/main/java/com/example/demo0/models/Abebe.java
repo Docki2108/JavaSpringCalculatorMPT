@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.*;
 
 @Entity
 public class Abebe {
@@ -12,8 +13,27 @@ public class Abebe {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
-    String name, info, city;
-    Integer attack, armor;
+    @NotEmpty(message = "Поле не может быть пустым!")
+    @Size(message = "Строка не может быть меньше 1", min = 1, max = 100)
+    String name;
+
+    @NotEmpty(message = "Поле не может быть пустым!")
+    @Size(message = "Строка не может быть меньше 2", min = 2, max = 100)
+    String info;
+
+    @NotEmpty(message = "Поле не может быть пустым!")
+    @Size(message = "Строка не может быть меньше 3", min = 3, max = 100)
+    String city;
+
+    @Min(message = "Впишите число не меньше 1", value = 1)
+    @Max(message = "Число не может быть больше 10000", value = 10000)
+    @NotNull(message = "Укажите количество просмотров")
+    Integer attack;
+
+    @Min(message = "Впишите число не меньше 1", value = 1)
+    @Max(message = "Число не может быть больше 10000", value = 10000)
+    @NotNull(message = "Укажите количество просмотров")
+    Integer armor;
 
     public Long getId() {
         return id;

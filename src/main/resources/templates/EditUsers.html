@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<form action="/admin" method="post">
+  <div th:each="el:${one_user}">
+    <input type="hidden" th:value="${el.id}" name="userId">
+    <input type="text" th:value="${el.login}" name="login">
+    <p th:text="${el.login}"></p>
+  </div>
+
+  <div th:each="role:${roles}">
+    <div th:each="user:${one_user}">
+      <input
+              type="checkbox"
+              th:name="${'roles[]'}"
+              th:value="${role}"
+              th:checked="${#lists.contains(user.roles, role)}">
+              <label th:text="${role}"/> >
+    </div>
+
+    </div>
+  <input type="submit" name="btn">
+</form>
+</body>
+</html>

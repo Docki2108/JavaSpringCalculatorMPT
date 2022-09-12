@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавление новой колы</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<form th:action="${'/coca/add/'}" method="post">
+    <select  name="coca">
+        <div th:each="element : ${coca}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    <select  name="shop">
+        <div th:each="element : ${shop}">
+            <option th:text="${element.name}"></option>
+        </div>
+    </select>
+    <br>
+    <button type="submit">Добавить связь</button>
+</form>
+</body>
+</html>

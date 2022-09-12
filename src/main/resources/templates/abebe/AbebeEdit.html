@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div th:each="el : ${abebe}">
+  <form th:object="${abebe}" th:action="'/abebe/AbebeEdit/' + ${el.id}" method="post">
+    <p>Имя
+      <input th:value="${el.name}" type="text" id="name" name="name" placeholder="Имя">
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </p>
+    <br>
+    <p>Информация <textarea th:value="${el.info}" type="text" id="info" name="info" placeholder="Информация"></textarea>
+    <div th:if="${#fields.hasErrors('info')}" th:errors="*{info}"></div>
+    </p>
+    <br>
+    <p>Город <input th:value="${el.city}" type="text" id="city" name="city" placeholder="Город">
+    <div th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
+    </p>
+    <br>
+    <p>Атака <input th:value="${el.attack}" type="number" id="attack" name="attack" placeholder="Атака">
+    <div th:if="${#fields.hasErrors('attack')}" th:errors="*{attack}"></div></p>
+    <br>
+    <p>Броня <input th:value="${el.armor}" type="number" id="armor" name="armor" placeholder="Броня">
+    <div th:if="${#fields.hasErrors('armor')}" th:errors="*{armor}"></div></p>
+    <br>
+    <input type="submit" value="Изменить абебе" class="btn btn-success">
+  </form>
+
+
+  <h2 th:text="${el.name}"></h2>
+  <h3 th:text="${el.info}"></h3>
+
+  <p th:text="${el.city}"></p>
+  <p th:text="${el.attack}"></p>
+  <p th:text="${el.armor}"></p>
+  <a th:href="'/abebe/deleteabebe1/'+${el.id}"  class="btn btn-primary">Удалить</a>
+</div>
+
+<a href="/abebe/" class="btn btn-primary">Назад</a>
+
+</body>
+</html>

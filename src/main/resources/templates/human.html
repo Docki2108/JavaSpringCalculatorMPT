@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавление нового человека</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<form th:action="${'/human/add/'}" method="post">
+    <input type="text" name="name" placeholder="Введите">
+    <select  name="nameplanet">
+        <div th:each="element : ${planet}">
+            <option th:text="${element.nameplanet}"></option>
+        </div>
+    </select>
+    <br>
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

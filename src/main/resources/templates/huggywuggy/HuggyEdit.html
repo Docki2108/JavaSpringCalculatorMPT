@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Huggy Edit</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+
+<div th:each="el : ${huggywuggy}">
+    <form th:object="${huggywuggy}" th:action="'/huggywuggy/HuggyEdit/' + ${el.id}" method="post">
+        <p>Заголовок
+            <input th:value="${el.name}" type="text" id="name" name="name" placeholder="Имя">
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </p>
+        <br>
+        <p>Текст <textarea th:value="${el.primary_color}" type="text" id="primary_color" name="primary_color" placeholder="Основной цвет"></textarea>
+        <div th:if="${#fields.hasErrors('primary_color')}" th:errors="*{primary_color}"></div>
+        </p>
+        <br>
+        <p>Автор <input th:value="${el.gender}" type= "text" id="gender" name="gender" placeholder="Пол">
+        <div th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
+        </p>
+        <br>
+        <p>Просмотры <input th:value="${el.height}" type="number" id="height" name="height" placeholder="Высота">
+        <div th:if="${#fields.hasErrors('height')}" th:errors="*{height}"></div></p>
+        <br>
+        <p>Лайки <input th:value="${el.creation_date}" type="number" id="creation_date" name="creation_date" placeholder="Год создания">
+        <div th:if="${#fields.hasErrors('creation_date')}" th:errors="*{creation_date}"></div></p>
+        <br>
+        <input type="submit" value="Изменить Хагги Вагги" class="btn btn-success">
+    </form>
+
+
+    <h2 th:text="${el.name}"></h2>
+    <h3 th:text="${el.primary_color}"></h3>
+    <p th:text="${el.gender}"></p>
+    <p th:text="${el.height}"></p>
+    <p th:text="${el.creation_date}"></p>
+    <a th:href="'/huggywuggy/delete/'+${el.id}"  class="btn btn-primary">Удалить</a>
+</div>
+
+<a href="/huggywuggy/" class="btn btn-primary">Назад</a>
+
+</body>
+</html>
