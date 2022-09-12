@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="abebe/html" charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div th:each="el : ${abebe}">
+  <h2 th:text="${el.name}"></h2>
+  <h3 th:text="${el.info}"></h3>
+
+  <p th:text="${el.city}"></p>
+  <p th:text="${el.attack}"></p>
+  <p th:text="${el.armor}"></p>
+  <a th:href="'/abebe/editAbebe/'+${el.id}"  class="btn btn-primary">Изменить</a>
+  <a th:href="'/abebe/Abebedelete/'+${el.id}"  class="btn btn-primary">Удалить</a>
+</div>
+
+<a href="/abebe/" class="btn btn-primary">Назад</a>
+
+</body>
+</html>
