@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta content="text/html" charset="UTF-8">
   <title>News</title>
@@ -7,21 +7,25 @@
 <body>
 
 <div th:each="el : ${news}">
-<form th:action="'/news/edit/' + ${el.id}" method="post">
-  <p>Заголовок</p>
-  <input th:value="${el.title}" type="text" id="title" name="title" placeholder="Заголовок">
+<form th:object="${news}" th:action="'/news/edit/' + ${el.id}" method="post">
+  <p>Заголовок
+    <input th:value="${el.title}" type="text" id="title" name="title" placeholder="Заголовок">
+  <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+  </p>
   <br>
-  <p>Текст</p>
-  <textarea th:value="${el.body_text}" type="text" id="body_text" name="body_text" placeholder="Текст"></textarea>
+  <p>Текст <textarea th:value="${el.body_text}" type="text" id="body_text" name="body_text" placeholder="Текст"></textarea>
+  <div th:if="${#fields.hasErrors('body_text')}" th:errors="*{body_text}"></div>
+  </p>
   <br>
-  <p>Автор</p>
-  <input th:value="${el.author}" type="text" id="author" name="author" placeholder="Автор">
+  <p>Автор <input th:value="${el.author}" type="text" id="author" name="author" placeholder="Автор">
+  <div th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
+  </p>
   <br>
-  <p>Просмотры</p>
-  <input th:value="${el.views}" type="number" id="views" name="views" placeholder="Просмотры">
+  <p>Просмотры <input th:value="${el.views}" type="number" id="views" name="views" placeholder="Просмотры">
+  <div th:if="${#fields.hasErrors('views')}" th:errors="*{views}"></div></p>
   <br>
-  <p>Лайки</p>
-  <input th:value="${el.likes}" type="number" id="likes" name="likes" placeholder="Лайки">
+  <p>Лайки <input th:value="${el.likes}" type="number" id="likes" name="likes" placeholder="Лайки">
+  <div th:if="${#fields.hasErrors('likes')}" th:errors="*{likes}"></div></p>
   <br>
   <input type="submit" value="Изменить новость" class="btn btn-success">
 </form>

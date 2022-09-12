@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta content="text/html" charset="UTF-8">
     <title>News</title>
@@ -12,16 +12,16 @@
     <input type="text" id="name" name="name" placeholder="Имя">
     <br>
     <p>Информация</p>
-    <textarea type="text" id="info" name="info" placeholder="Основной цвет"></textarea>
+    <textarea type="text" id="info" name="info" placeholder="Информация"></textarea>
     <br>
     <p>Город</p>
-    <input type="text" id="city" name="city" placeholder="Пол">
+    <input type="text" id="city" name="city" placeholder="Город">
     <br>
     <p>Атака</p>
-    <input type="number" id="attack" name="attack" placeholder="Рост">
+    <input type="number" id="attack" name="attack" placeholder="Атака">
     <br>
     <p>Броня</p>
-    <input type="number" id="armor" name="armor" placeholder="Год создания">
+    <input type="number" id="armor" name="armor" placeholder="Броня">
     <br>
     <input type="submit" value="Добавить Абебе" class="btn btn-success">
 </form>

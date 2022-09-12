@@ -1,15 +1,15 @@
 package com.example.demo0.controllers;
 
 import com.example.demo0.models.Abebe;
+import com.example.demo0.models.News;
 import com.example.demo0.reposytories.AbebeRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -27,19 +27,18 @@ public class AbebeController {
     }
 
     @GetMapping("/addAbebe")
-    public String addViewAbebe(Model model){
+    public String addView(Model model){
+        model.addAttribute("abebe", new Abebe());
         return "/abebe/AbebeAdd"; // обращение к файлу внутри темплате
     }
 
     @PostMapping("/addAbebe")
-    public String addAbebe(@RequestParam("name") String name,
-                           @RequestParam("info") String info,
-                           @RequestParam("city") String city,
-                           @RequestParam("attack") Integer attack,
-                           @RequestParam("armor") Integer armor,
+    public String addAbebe(@ModelAttribute("abebe") @Valid Abebe newAbebe,
+                           BindingResult bindingResult,
                            Model model){
-        Abebe abebeOne = new Abebe(name, info, city, attack, armor);
-        abebeRep.save(abebeOne);
+        if (bindingResult.hasErrors())
+            return "abebe/AbebeAdd";
+        abebeRep.save(newAbebe);
         return "redirect:/abebe/"; //прописывание url
     }
 

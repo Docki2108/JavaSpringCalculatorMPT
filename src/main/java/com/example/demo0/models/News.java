@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.*;
 
 @Entity
 public class News {
@@ -11,8 +12,27 @@ public class News {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
-    String title, body_text, author;
-    Integer views, likes;
+    @NotEmpty(message = "Поле не может быть пустым!")
+    @Size(message = "Строка не может быть меньше 3", min = 3, max = 100)
+    String title;
+
+    @NotEmpty(message = "Поле не может быть пустым!")
+    @Size(message = "Строка не может быть меньше 1", min = 1, max = 100)
+    String body_text;
+
+    @NotEmpty(message = "Поле не может быть пустым!")
+    @Size(message = "Строка не может быть меньше 1", min = 1, max = 100)
+    String author;
+
+    @Min(message = "Впишите число не меньше 1", value = 1)
+    @Max(message = "Число не может быть больше 10000", value = 10000)
+    @NotNull(message = "Укажите количество просмотров")
+    Integer views;
+
+    @Min(message = "Впишите число не меньше 0", value = 0)
+    @Max(message = "Число не может быть больше 10000", value = 10000)
+    @NotNull(message = "Укажите количество лайков")
+    Integer likes;
 
     public Long getId() {
         return id;
